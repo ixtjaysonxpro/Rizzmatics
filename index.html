@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<ul>
+    <li><strong>Current URL:</strong> <span id="current-url"></span></li>
+    <li><strong>Referrer URL:</strong> <span id="referrer-url"></span></li>
+    <li><strong>User Agent:</strong> <span id="user-agent"></span></li>
+  </ul>
+
+  <script>
+    // Get the current URL
+    var currentUrl = window.location.href;
+
+    // Get the referrer URL (if available)
+    var referrerUrl = document.referrer || 'N/A';
+
+    // Get the user agent string
+    var userAgent = navigator.userAgent;
+
+    // Update the HTML elements with the tracking information
+    document.getElementById('current-url').textContent = currentUrl;
+    document.getElementById('referrer-url').textContent = referrerUrl;
+    document.getElementById('user-agent').textContent = userAgent;
+  </script>
     <style>
       /* Style the splash screen content */
       #splash-screen {
