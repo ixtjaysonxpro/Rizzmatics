@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<ul>
-    <li><strong>Current URL:</strong> <span id="current-url"></span></li>
-    <li><strong>Referrer URL:</strong> <span id="referrer-url"></span></li>
-    <li><strong>User Agent:</strong> <span id="user-agent"></span></li>
-  </ul>
+<body>
+  <h1>Number of users on site:</h1>
+  <p id="user-count"></p>
 
   <script>
-    // Get the current URL
-    var currentUrl = window.location.href;
+    // initialize user count to 0
+    let userCount = 0;
 
-    // Get the referrer URL (if available)
-    var referrerUrl = document.referrer || 'N/A';
+    // update user count function
+    function updateUserCount() {
+      // increment user count
+      userCount++;
 
-    // Get the user agent string
-    var userAgent = navigator.userAgent;
+      // display user count in HTML
+      document.getElementById("user-count").innerHTML = userCount;
+    }
 
-    // Update the HTML elements with the tracking information
-    document.getElementById('current-url').textContent = currentUrl;
-    document.getElementById('referrer-url').textContent = referrerUrl;
-    document.getElementById('user-agent').textContent = userAgent;
+    // call update user count function on page load
+    updateUserCount();
   </script>
+</body>
     <style>
       /* Style the splash screen content */
       #splash-screen {
