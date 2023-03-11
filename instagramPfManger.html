@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Account List</title>
+  </head>
+  <body>
+    <h1>Instagram Account List</h1>
+    
+    <form>
+      <label for="account">Add Instagram Account:</label>
+      <input type="text" id="account" name="account">
+      <button type="button" onclick="addAccount()">Add</button>
+    </form>
+    
+    <ul id="accountList"></ul>
+
+    <script>
+      function addAccount() {
+        const accountInput = document.getElementById("account");
+        const account = accountInput.value;
+        accountInput.value = "";
+
+        const accountList = document.getElementById("accountList");
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = `https://www.instagram.com/${account}`;
+        link.target = "_blank";
+        const img = document.createElement("img");
+        img.src = `https://www.instagram.com/${account}/profile_pic/`;
+        img.alt = `${account} profile picture`;
+        img.width = "100";
+        img.height = "100";
+        link.appendChild(img);
+        listItem.appendChild(link);
+        accountList.appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>
