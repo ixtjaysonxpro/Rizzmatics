@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://github.com/ixtjaysonxpro/rizzmatics.github.io/blob/main/sitemap.xml
