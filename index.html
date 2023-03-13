@@ -14,11 +14,12 @@
 #dark-mode-btn,body{background-color:#fff;color:#333}#dark-mode-btn:hover,body.dark-mode{background-color:#333;color:#fff}#dark-mode-btn{position:fixed;bottom:20px;right:20px;border:1px solid #333;cursor:pointer;font-size:16px;padding:8px 16px;border-radius:4px}#dark-mode-btn .icon-moon{display:inline-block;width:20px;height:20px;background-image:url("https://cdn-icons-png.flaticon.com/512/1586/1586356.png");background-repeat:no-repeat;background-size:contain;margin-right:8px}@media (prefers-color-scheme:dark){#dark-mode-btn,body{background-color:#333;color:#fff}#dark-mode-btn:hover,body.dark-mode{background-color:#fff;color:#333}#dark-mode-btn .icon-moon{background-image:url("https://cdn-icons-png.flaticon.com/512/2940/2940718.png")}#dark-mode-btn{border-color:#fff}}
 .fa{padding:20px;font-size:30px;width:30px;text-align:center;text-decoration:none;margin:5px 2px;border-radius:50%}.fa:hover{opacity:.7}.fa-instagram{background:#125688;color:#fff}
   </head>
+  <Script>
   const darkModeBtn = document.querySelector('#dark-mode-btn');
 
 darkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-});
+});</script>
 
   <style>
   <body>
