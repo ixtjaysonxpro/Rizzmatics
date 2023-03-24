@@ -1,13 +1,14 @@
 <?php
-  $data = json_decode(file_get_contents('php://input'), true); // decode the JSON data
+// get latitude and longitude from GET request
+$lat = $_GET['lat'];
+$long = $_GET['long'];
 
-  $latitude = $data['latitude'];
-  $longitude = $data['longitude'];
+// open location.txt file in append mode
+$file = fopen("location.txt", "a");
 
-  // append the data to location.txt file
-  $file = fopen('location.txt', 'a');
-  fwrite($file, $latitude . ',' . $longitude . "\n");
-  fclose($file);
+// write latitude and longitude to the file
+fwrite($file, $lat . "," . $long . "\n");
 
-  echo 'Location data saved successfully.';
+// close the file
+fclose($file);
 ?>
