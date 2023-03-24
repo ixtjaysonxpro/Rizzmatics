@@ -1,14 +1,7 @@
 <?php
-// get latitude and longitude from GET request
-$lat = $_GET['lat'];
-$long = $_GET['long'];
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "lat: " . $_GET["lat"] . "\nlong: " . $_GET["long"];
+fwrite($myfile, $txt);
 
-// open location.txt file in append mode
-$file = fopen("location.txt", "a");
-
-// write latitude and longitude to the file
-fwrite($file, $lat . "," . $long . "\n");
-
-// close the file
-fclose($file);
+fclose($myfile);
 ?>
