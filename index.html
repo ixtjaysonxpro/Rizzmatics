@@ -6,27 +6,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--ssssssssssssssssssssssssttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrttttttttttt-->
-<body onload="getLocation()">
-  <p id="demo"></p>
+ <body onload="getLocation()">
+    <p id="demo"></p>
 
-  <script>
-    var x = document.getElementById("demo");
+    <script>
+      var x = document.getElementById("demo");
 
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
       }
-    }
 
-    function showPosition(position) {
-      const xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
-      xhttp.send();
-    }
-  </script>
-</body>
+      function showPosition(position) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+        xhttp.send();
+      }
+    </script>
+  </body>
 </html>
  <!--EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNDDDDDD-->
 
