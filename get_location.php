@@ -18,7 +18,7 @@ $zip = $data->zip ?? '';
 $location = "{$city}, {$region}, {$country}, {$zip}";
 
 // Write the location data to a text file
-$file = fopen("location.txt", "w");
+$file = fopen("location.txt", "w") or die("Unable to create file!");
 fwrite($file, $location);
 fclose($file);
 
